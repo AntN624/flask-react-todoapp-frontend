@@ -3,7 +3,15 @@ import axios from "axios";
 import { FaWindowClose, FaRegEdit } from "react-icons/fa";
 
 export default function Main() {
-  const baseUrl = "http://127.0.0.1:5000";
+  const env = 'prod'
+  let baseUrl = ""
+
+  if (env === 'prod'){
+    baseUrl = "https://flask-react-todoapp-backend.herokuapp.com";
+  }
+  else {
+    baseUrl = "http://127.0.0.1:5000"
+  }
   const [todoList, setTodoList] = React.useState([]);
   const [newTask, setNewTask] = React.useState("");
   const [taskId, setTaskId] = React.useState(null);
