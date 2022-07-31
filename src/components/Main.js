@@ -18,8 +18,8 @@ export default function Main() {
   const [editTask, setEditTask] = React.useState("");
 
   React.useEffect(() => {
-    getTodos();
-  }, []);
+    getTodos()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   function getTodos() {
     axios.get(`${baseUrl}/todos`).then((res) => {
